@@ -83,22 +83,23 @@ jQuery(document).ready(function($) {
       var contactMessage = $("#contactForm #contactMessage").val();
 
       var data =
-        "contactName=" +
+        "Name=" +
         contactName +
-        "&contactEmail=" +
+        "&Email=" +
         contactEmail +
-        "&contactSubject=" +
+        "&Subject=" +
         contactSubject +
-        "&contactMessage=" +
+        "&Message=" +
         contactMessage;
 
       $.ajax({
         type: "POST",
-        url: "inc/sendEmail.php",
+        url: "https://send.pageclip.co/HoAKViw5XjkATaG8QEuKrdluPMSHK3Hu/contact-me",
         data: data,
         success: function(msg) {
           // Message was sent
-          if (msg == "OK") {
+          if (msg === "OK") {
+            console.log(msg);
             $("#image-loader").fadeOut();
             $("#message-warning").hide();
             $("#contactForm").fadeOut();
@@ -106,6 +107,7 @@ jQuery(document).ready(function($) {
           }
           // There was an error
           else {
+            console.error(msg);
             $("#image-loader").fadeOut();
             $("#message-warning").html(msg);
             $("#message-warning").fadeIn();
