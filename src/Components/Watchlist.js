@@ -1,46 +1,42 @@
+import { Button, Card } from "@material-ui/core";
 import React, { Component } from "react";
-import Fade from "react-reveal";
+
 
 class WatchList extends Component {
   render() {
     if (!this.props.data) return null;
 
-    const networks = this.props.data.social.map(function (network) {
-      return (
-        <li key={network.name}>
-          <a href={network.url}>
-            <i className={network.className}></i>
-          </a>
-        </li>
-      );
+
+    const openLink = url => {
+        window.location.href = url;
+      };
+
+
+    const AnimeList = this.props.data.anime.showList.map(anime => {
+        return (
+        
+            <Card key={anime.id}>
+            <Card.Title className='card-title'>{anime.name}</Card.Title>
+            <Card.Body>
+              <p>Anime Description: {anime.description}</p>
+              <p>Total Episodes: {anime.totalEpisodes}</p>
+              <p>Current Episode: {anime.currentEpisode}</p>
+              <p>Completed? {anime.completed}</p>
+              <Button variant='primary' onClick={openLink.bind(this, anime.url)}>
+                Open
+              </Button>{' '}
+            </Card.Body>
+          </Card>
+        
+        )
     });
 
     return (
         <div className="row">
-          <Fade bottom>
-            <div className="twelve columns">
-              <ul className="social-links">{networks}</ul>
-
-              <ul className="copyright">
-                <li>&copy; Copyright 2021 Sean Doran</li>
-                <li>
-                  Design by{" "}
-                  <a title="Styleshout" href="http://www.styleshout.com/">
-                    Styleshout
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </Fade>
-
-          <div id="go-top">
-            <a className="smoothscroll" title="Back to Top" href="#home">
-              <i className="icon-up-open"></i>
-            </a>
-          </div>
+            {AnimeList}
         </div>
     );
   }
 }
 
-export default Footer;
+export default WatchList;

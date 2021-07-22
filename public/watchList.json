@@ -1,0 +1,39 @@
+{
+    "anime": { 
+      "showList":[
+        {
+            "id":0,
+            "name":"Black Clover",
+            "totalEpisodes":170,
+            "currentEpisode":44,
+            "completed": false,
+            "updateDate": "",
+            "createDate": ""
+        },
+        {
+            "id": 1,
+            "name":"Hunter x Hunter",
+            "totalEpisodes":140,
+            "currentEpisode": "N/A",
+            "completed": true,
+            "url": "",
+            "updateDate": "",
+            "createDate": ""
+        }
+      ],
+      "totalShows":20
+    },
+    "tv":{
+        "tvList":[],
+        "totalShows":20,
+        "updateDate": "",
+        "createDate": ""
+      },
+    "movies":{
+        "movieList":[],
+        "totalMovies":20,
+        "updateDate": "",
+        "createDate": ""
+    }
+  }
+  
